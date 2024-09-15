@@ -1,0 +1,579 @@
+:root {
+    --primary-color: #196064;
+    --secondary-color: #8DE6EB;
+    --background-color: #f1f1f1;
+    --text-color: #333;
+    --nav-text-color: #fff;
+    --transition-speed: 0.3s;
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+.container {
+    display: flex;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: var(--primary-color);
+    color: var(--nav-text-color);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 80px;
+    height: 40px;
+    margin-right: 15px;
+}
+
+h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+
+
+
+
+.toggle-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+  }
+  
+  #toggle-mode {
+    display: none;
+  }
+  
+  .toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 80px;
+    height: 40px;
+    background-color: #87CEEB;
+    border-radius: 20px;
+    transition: all 0.3s;
+    cursor: pointer;
+    overflow: hidden;
+  }
+  
+  .toggle-slider {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 36px;
+    height: 36px;
+    background-color: #FFD700;
+    border-radius: 50%;
+    transition: all 0.3s;
+    z-index: 2;
+  }
+  
+  .toggle-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    transition: all 0.3s;
+  }
+  
+  .toggle-icon.day {
+    left: 10px;
+    color: #FFD700;
+  }
+  
+  .toggle-icon.night {
+    right: 10px;
+    color: #FFFFFF;
+    opacity: 0;
+  }
+  
+  #toggle-mode:checked + .toggle-switch {
+    background-color: #196064;
+  }
+  
+  #toggle-mode:checked + .toggle-switch .toggle-slider {
+    left: calc(100% - 38px);
+    background-color: #C0C0C0;
+  }
+  
+  #toggle-mode:checked + .toggle-switch .toggle-icon.day {
+    opacity: 0;
+  }
+  
+  #toggle-mode:checked + .toggle-switch .toggle-icon.night {
+    opacity: 1;
+  }
+
+
+
+
+
+
+.navbar {
+    width: 220px;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    height: calc(100% - 80px);
+    background-color: var(--primary-color);
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+.navbar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.navbar ul li {
+    margin-bottom: 10px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: var(--nav-text-color);
+    font-size: 16px;
+    padding: 10px;
+    display: block;
+    border-radius: 5px;
+    transition: background-color var(--transition-speed);
+}
+
+.navbar ul li a:hover, .navbar ul li a.active {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+main {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 220px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#about-me {
+    width: 100%;
+    max-width: 600px;
+}
+
+section {
+    margin-bottom: 40px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+.about-content {
+    margin-top:150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.profile-photo {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid var(--secondary-color);
+    margin-bottom: 20px;
+}
+
+.about-content p {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.dark-mode {
+    --primary-color: #8DE6EB;
+    --secondary-color: #196064;
+    --background-color: #1E1E1E;
+    --text-color: #fff;
+    --nav-text-color: #1E1E1E;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    header {
+        position: static;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar {
+        width: 100%;
+        position: static;
+        height: auto;
+    }
+
+    main {
+        margin-left: 0;
+        margin-top: 20px;
+    }
+}
+
+/* Add this to your existing CSS */
+
+#social-links {
+    position: fixed;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--secondary-color);
+    border-radius: 50%;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: scale(1.1);
+    background-color: var(--primary-color);
+}
+
+.social-icon svg {
+    width: 24px;
+    height: 24px;
+    fill: var(--background-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #social-links {
+        position: static;
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 20px;
+        transform: none;
+    }
+}
+
+.get-in-touch {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--nav-text-color);
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color var(--transition-speed), transform 0.2s ease;
+}
+
+.get-in-touch:hover {
+    background-color: var(--secondary-color);
+    transform: scale(1.05);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .get-in-touch {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}
+
+/* Add this for smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Styles for Education Section */
+#education {
+    padding: 40px 20px;
+    background-color: var(--background-color);
+    text-align: center;
+}
+
+.education-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.degree-image {
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--secondary-color);
+}
+
+.education-details {
+    text-align: left;
+}
+
+.education-details h3 {
+    font-size: 20px;
+    color: var(--primary-color);
+}
+
+.education-details p {
+    font-size: 16px;
+    color: var(--text-color);
+}
+
+.navbar ul li a.active, .navbar ul li a:hover {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+
+/* Existing styles... */
+
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+
+#education {
+    width: 100%;
+    max-width: 800px;
+}
+
+.education-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    padding: 20px;
+    transition: transform 0.3s ease;
+}
+
+.education-item:hover {
+    transform: translateY(-5px);
+}
+
+.education-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 20px;
+    border: 3px solid var(--primary-color);
+}
+
+.education-details {
+    flex-grow: 1;
+}
+
+.education-details h3 {
+    margin: 0 0 10px;
+    color: var(--primary-color);
+}
+
+.education-details p {
+    margin: 5px 0;
+    color: var(--text-color);
+}
+
+@media (max-width: 768px) {
+    .education-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .education-image {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    #social-links {
+        flex-wrap: wrap;
+    }
+}
+
+/* Ensure smooth scrolling for the entire page */
+html {
+    scroll-behavior: smooth;
+}
+
+#experience {
+    width: 100%;
+    max-width: 800px;
+    margin-top: 40px;
+}
+
+.experience-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    padding: 20px;
+    transition: transform 0.3s ease;
+}
+
+.experience-item:hover {
+    transform: translateY(-5px);
+}
+
+.experience-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 20px;
+    border: 3px solid var(--primary-color);
+}
+
+.experience-details {
+    flex-grow: 1;
+}
+
+.experience-details h3 {
+    margin: 0 0 10px;
+    color: var(--primary-color);
+}
+
+.experience-details p {
+    margin: 5px 0;
+    color: var(--text-color);
+}
+
+@media (max-width: 768px) {
+    .experience-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .experience-image {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+}
+
+#contact {
+    width: 100%;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#contact h2 {
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 96%;
+    align-items: center;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 2px solid var(--primary-color);
+    border-radius: 5px;
+    font-size: 16px;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.contact-form button {
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: var(--primary-color-dark);
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: var(--text-color);
+}
+
