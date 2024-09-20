@@ -353,4 +353,116 @@ html {
 }
 
 
+@media (min-width: 768px) {
+    .container {
+        flex-direction: row;
+    }
+
+    header {
+        padding: 20px;
+    }
+
+    .logo {
+        width: 80px;
+        height: 40px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    #toggle-mode {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+
+    .navbar {
+        width: 220px;
+        top: 80px;
+        height: calc(100% - 80px);
+        padding: 20px;
+        overflow-y: auto;
+        overflow-x: visible;
+        white-space: normal;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+    }
+
+    .navbar ul li {
+        margin-bottom: 10px;
+    }
+
+    .navbar ul li a {
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    main {
+        margin-left: 220px;
+        margin-top: 80px;
+    }
+
+    .profile-photo {
+        width: 180px;
+        height: 180px;
+    }
+
+    #social-links {
+        right: 40px;
+        gap: 20px;
+    }
+
+    .social-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .social-icon svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    .get-in-touch {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+
+    #skills {
+        max-width: 1000px;
+        padding: 20px;
+    }
+
+    #skills h2 {
+        font-size: 32px;
+    }
+
+    .skills-container {
+        flex-direction: row;
+    }
+
+    .skills-category h3 {
+        font-size: 24px;
+    }
+
+    .skill-name {
+        font-size: 16px;
+    }
+
+    .bar {
+        height: 12px;
+    }
+}
+
+@media (max-width: 767px) {
+    #social-links {
+        position: static;
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 20px;
+        transform: none;
+    }
+}
+
 
